@@ -6,6 +6,8 @@ time=$1
 access_log=$2
 error_log=$3
 
-cd build/
-./test $time $accesslog $errorlog
+#cd build/
+#
+./toaster $time | python3 ./story3.py
+./build/test $time $accesslog $errorlog
 
