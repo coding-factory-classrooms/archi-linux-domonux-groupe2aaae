@@ -8,6 +8,6 @@ error_log=$3
 
 #cd build/
 #
-./toaster $time | python3 ./story3.py
+./toaster $time | python3 ./genSensorData.py
 ./build/test $time $accesslog $errorlog
 
