@@ -1,0 +1,15 @@
+Capteur#32;Kitchen;maxvalue=30;value=17
+Capteur#8;Living;maxvalue=30;value=21
+Capteur#5;Bedroom;maxvalue=30;value=21
+Capteur#10;Bedroom;maxvalue=30;value=22
+Capteur#3;Kitchen;maxvalue=30;value=11
+Capteur#11;Kitchen;maxvalue=30;value=24
+Capteur#13;Kitchen;maxvalue=30;value=22
+Capteur#11;Living;maxvalue=30;value=20
+Capteur#11;Bedroom;maxvalue=30;value=17
+Capteur#43;Kitchen;maxvalue=30;value=1
+Capteur#8;Living;maxvalue=30;value=14
+Capteur#0;Living;maxvalue=30;value=23
+Capteur#13;Kitchen;maxvalue=30;value=17
+Capteur#26;Bedroom;maxvalue=30;value=1
+Capteur#14;Bedroom;maxvalue=30;value=22

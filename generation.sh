@@ -20,7 +20,7 @@ touch $error_log
 ./genTick $time | python3 ./genSensorData.py | {
     while IFS= read -r line;
     do
-        echo $line >> $access_log
+        echo $(cut -d';' -f 1,2,4,5 <<< $line) >> $access_log
         echo $line 2>> $error_log
     done
 }
