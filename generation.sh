@@ -7,7 +7,9 @@ gcc genTick.c -o genTick;
 
 
 time=$1
-folder_log=build/$2
+user=$(whoami)
+folder_log=~/$2
+echo $folder_log
 access_log=$folder_log/$3.txt
 error_log=$folder_log/$4.txt
 
@@ -17,7 +19,9 @@ rm -rf $folder_log
 mkdir -p $folder_log
 touch $access_log
 touch $error_log
+
 ./genTick $time | python3 ./genSensorData.py | {
+    echo "I am $user"
     while IFS= read -r line;
     do
         echo $(cut -d';' -f 1,2,4,5 <<< $line) >> $access_log

@@ -7,7 +7,7 @@ for line in sys.stdin:
     nameList = ["Living", "Kitchen", "Bedroom"]
     name = random.choice(nameList)
     if "ERROR" in line:
-        code = "Bite"
+        code = "toast"
         print("Error#" + id + ";" + name + ";code=0x8A72E33", file=sys.stderr, flush=True)
     else:
         minVal = 0
