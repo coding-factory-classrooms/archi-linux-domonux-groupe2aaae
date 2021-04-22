@@ -3,6 +3,6 @@ import sys
 
 for line in sys.stdin:
     if "ERROR" in line:
-        print("ERR " + line + ".", file=sys.stderr)
+        print("Error#30;Cuisine;code=0x8A72E33", file=sys.stderr, flush=True)
     else:
-        print("standard " + line + ".", file=sys.stdout)
+        print("Capteur#45;Salon;minvalue=10;maxvalue=25;value=18", file=sys.stdout, flush=True)

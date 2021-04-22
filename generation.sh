@@ -1,18 +1,29 @@
 #!/bin/bash
 
+#precompile C
+gcc genTick.c -o genTick;
+
 #define arguments (time, folder_log, access_log, error_log);
 
+
 time=$1
-folder_log=$2
-access_log=$3
-error_log=$4
+folder_log=build/$2
+access_log=$folder_log/$3.txt
+error_log=$folder_log/$4.txt
 
 #cd build/
 #
-mkdir build/$folder_log
-touch build/$folder_log/$access_log.txt
-touch build/$folder_log/$error_log.txt
-./genTick $time | python3 ./genSensorData.py | 1> $access_log.txt
+rm -rf $folder_log
+mkdir -p $folder_log
+touch $access_log
+touch $error_log
+./genTick $time | python3 ./genSensorData.py | {
+    while IFS= read -r line;
+    do
+        echo $line >> $access_log
+        echo $line 2>> $error_log
+    done
+}
 
 
 

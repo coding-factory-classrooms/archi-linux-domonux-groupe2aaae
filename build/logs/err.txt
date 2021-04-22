@@ -1,0 +1,5 @@
+Error: no such file "Capteur#45;Salon;minvalue=10;maxvalue=25;value=18"
+Error: no such file "Capteur#45;Salon;minvalue=10;maxvalue=25;value=18"
+Error: no such file "Capteur#45;Salon;minvalue=10;maxvalue=25;value=18"
+Error: no such file "Capteur#45;Salon;minvalue=10;maxvalue=25;value=18"
+Error: no such file "Capteur#45;Salon;minvalue=10;maxvalue=25;value=18"
