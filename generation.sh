@@ -5,16 +5,16 @@ gcc genTick.c -o genTick;
 
 #define arguments (time, folder_log, access_log, error_log);
 
-
 time=$1
 user=$(whoami)
 folder_log=~/$2
+
 echo $folder_log
 access_log=$folder_log/$3.txt
 error_log=$folder_log/$4.txt
 
 #cd build/
-#
+
 rm -rf $folder_log
 mkdir -p $folder_log
 touch $access_log
