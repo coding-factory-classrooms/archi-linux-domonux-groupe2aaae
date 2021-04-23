@@ -22,21 +22,25 @@ then
         echo "$access_log size is $outSize bytes."
         echo "$error_log size is $errSize bytes."
         echo "Total : $testSize bytes;"
-
-        if [[ $outSize -gt $max_memory ]]
+        
+        now=$(date +"%Y-%m-%d %H:%M:%S")
+        if [[ $outSize -gt $max_memory ]] || [[ $errSize -gt $max_memory ]]
         then
             for p in $(pgrep -u $user generation.sh); do kill $p; done
-            if [[ $outSize -gt $max_memory ]]
+
+            if [[ $outSize -gt $max_memory ]] && [[ $errSize -gt $max_memory ]]
+            then
+                echo "Both files size are bigger than the max allocated !"
+                $(cd $folder_log && ls -l)
+                echo $(cd $folder_log && tar -czvf "./$now.tar.gz" "$3.txt" "$4.txt")
+            elif [[ $outSize -gt $max_memory ]]
             then
                 echo "The $access_log size is bigger than the max allocated !"
-            fi
-        fi
-        if [[ $errSize -gt $max_memory ]]
-        then
-            for p in $(pgrep -u $user generation.sh); do kill $p; done
-            if [[ $errSize -gt $max_memory ]]
+                echo $(cd $folder_log && tar -czvf "./$now.tar.gz" "$3.txt")
+            elif [[ $errSize -gt $max_memory ]]
             then
                 echo "The $error_log size is bigger than the max allocated !"
+                echo $(cd $folder_log && tar -czvf "./$now.tar.gz" "$4.txt")
             fi
         fi
     else
