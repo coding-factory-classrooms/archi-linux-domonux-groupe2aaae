@@ -20,7 +20,7 @@ mkdir -p $folder_log
 touch $access_log
 touch $error_log
 
-./genTick $time | python3 ./genSensorData.py | {
+./genTick $time | python3 ./genSensorData.py 2>&1 |	{
     echo "I am $user $(id -u $user)"
     while IFS= read -r line;
     do
