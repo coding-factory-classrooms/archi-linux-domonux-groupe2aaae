@@ -23,10 +23,21 @@ then
         echo "$error_log size is $errSize bytes."
         echo "Total : $testSize bytes;"
 
-        if [[ $testSize -gt $max_memory ]]
+        if [[ $outSize -gt $max_memory ]]
         then
-            echo "The logs size are bigger than the max allocated !"
-            $(kill ./generation.sh)
+            for p in $(pgrep -u $user generation.sh); do kill $p; done
+            if [[ $outSize -gt $max_memory ]]
+            then
+                echo "The $access_log size is bigger than the max allocated !"
+            fi
+        fi
+        if [[ $errSize -gt $max_memory ]]
+        then
+            for p in $(pgrep -u $user generation.sh); do kill $p; done
+            if [[ $errSize -gt $max_memory ]]
+            then
+                echo "The $error_log size is bigger than the max allocated !"
+            fi
         fi
     else
         echo "generation.sh is not running"
