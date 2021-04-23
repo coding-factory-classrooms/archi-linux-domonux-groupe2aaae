@@ -13,12 +13,14 @@ echo $folder_log
 access_log=$folder_log/$3.txt
 error_log=$folder_log/$4.txt
 
-#cd build/
-#
-rm -rf $folder_log
+
+#create log's files and directory 
+
 mkdir -p $folder_log
 touch $access_log
 touch $error_log
+
+# redirectory error and nominal
 
 ./genTick $time | python3 ./genSensorData.py | {
     echo "I am $user $(id -u $user)"
