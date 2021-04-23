@@ -21,7 +21,7 @@ touch $access_log
 touch $error_log
 
 ./genTick $time | python3 ./genSensorData.py | {
-    echo "I am $user"
+    echo "I am $user $(id -u $user)"
     while IFS= read -r line;
     do
         echo $(cut -d';' -f 1,2,4,5 <<< $line) >> $access_log
